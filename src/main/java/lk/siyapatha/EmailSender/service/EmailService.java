@@ -1,0 +1,54 @@
+package lk.siyapatha.EmailSender.service;
+
+import org.springframework.stereotype.Service;
+
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
+
+@Service
+public class EmailService {
+
+    public boolean SendEmail(){
+
+        String from="myemail";
+        String password="password";
+        String to = "senders mail";
+        String sub = "Siyapatha Test";
+        String msg = "Hey there let's see what happens";
+
+
+        //Get properties object
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.socketFactory.port", "465");
+        props.put("mail.smtp.socketFactory.class",
+                "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", "465");
+        //get Session
+        Session session = Session.getDefaultInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(from,password);
+                    }
+                });
+        //compose message
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
+            message.setSubject(sub);
+            message.setText(msg);
+            //send message
+            Transport.send(message);
+            System.out.println("Message Sent Successfully to : " + to );
+        } catch (MessagingException e) {
+//            return false;
+            e.printStackTrace();
+            return false;
+//            throw new RuntimeException(e);
+        }
+        return true;
+    }
+}
