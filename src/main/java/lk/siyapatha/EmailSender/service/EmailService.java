@@ -15,7 +15,7 @@ public class EmailService {
         String from="myemail";
         String password="password";
         String to = "senders mail";
-        String sub = "Siyapatha Test";
+        String sub = " Test";
         String msg = "Hey there let's see what happens";
 
 
