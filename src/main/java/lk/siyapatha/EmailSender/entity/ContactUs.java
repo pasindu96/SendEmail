@@ -5,6 +5,8 @@ public class ContactUs {
     private String Name;
     private String EmailAddress;
     private int MsgType;
+    private String Phone;
+    private String Company;
 
     public ContactUs() {
     }
@@ -13,6 +15,14 @@ public class ContactUs {
         Name = name;
         EmailAddress = emailAddress;
         MsgType = msgType;
+    }
+
+    public ContactUs(String name, String emailAddress, int msgType, String phone, String company) {
+        Name = name;
+        EmailAddress = emailAddress;
+        MsgType = msgType;
+        Phone = phone;
+        Company = company;
     }
 
     public String getName() {
@@ -39,12 +49,30 @@ public class ContactUs {
         MsgType = msgType;
     }
 
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
+    }
+
+    public String getCompany() {
+        return Company;
+    }
+
+    public void setCompany(String company) {
+        Company = company;
+    }
+
     @Override
     public String toString() {
-        return "EmailInfor{" +
+        return "ContactUs{" +
                 "Name='" + Name + '\'' +
                 ", EmailAddress='" + EmailAddress + '\'' +
                 ", MsgType=" + MsgType +
+                ", Phone='" + Phone + '\'' +
+                ", Company='" + Company + '\'' +
                 '}';
     }
 }
