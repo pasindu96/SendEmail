@@ -17,9 +17,9 @@ public class EmailController {
 
 
     @PostMapping(value = "/contactus", produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String SendEmail(@RequestBody ContactUs email){
+    public ContactUs SendEmail(@RequestBody ContactUs email){
         System.out.println(email);
 //        System.out.println("Result : " + emailService.SendEmail());
-        return "Received !";
+        return email;
     }
 }
