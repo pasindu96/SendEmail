@@ -4,20 +4,20 @@ public class ContactUs {
 
     private String Name;
     private String EmailAddress;
-    private int MsgType;
+    private String MsgType;
     private String Phone;
     private String Company;
 
     public ContactUs() {
     }
 
-    public ContactUs(String name, String emailAddress, int msgType) {
+    public ContactUs(String name, String emailAddress, String msgType) {
         Name = name;
         EmailAddress = emailAddress;
         MsgType = msgType;
     }
 
-    public ContactUs(String name, String emailAddress, int msgType, String phone, String company) {
+    public ContactUs(String name, String emailAddress, String msgType, String phone, String company) {
         Name = name;
         EmailAddress = emailAddress;
         MsgType = msgType;
@@ -41,11 +41,11 @@ public class ContactUs {
         EmailAddress = emailAddress;
     }
 
-    public int getMsgType() {
+    public String getMsgType() {
         return MsgType;
     }
 
-    public void setMsgType(int msgType) {
+    public void setMsgType(String msgType) {
         MsgType = msgType;
     }
 
