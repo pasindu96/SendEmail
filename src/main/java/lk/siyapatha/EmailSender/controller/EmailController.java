@@ -18,8 +18,7 @@ public class EmailController {
 
 
     @PostMapping(value = "/contactus", produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String SendEmail(@RequestBody ContactUs contactUs){
-//        return emailService.SendEmail(contactUs);
-        return "What the hell is this";
+    public Result SendEmail(@RequestBody ContactUs contactUs){
+        return emailService.SendEmail(contactUs);
     }
 }
