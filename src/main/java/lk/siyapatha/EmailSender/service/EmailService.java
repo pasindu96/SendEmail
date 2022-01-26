@@ -13,7 +13,8 @@ import java.util.Properties;
 public class EmailService {
 
     public Result SendEmail(ContactUs contact){
-
+        if(contact.getName().trim() =="" || contact.getPhone().trim()=="" || contact.getEmail().trim()==  "")
+            return new Result("Please Insert Necessary Details", 400);
         String from="rebornit.lk@gmail.com";
         String password="RebornIT@mit2016";
         String to = "rebornit.lk@gmail.com";
