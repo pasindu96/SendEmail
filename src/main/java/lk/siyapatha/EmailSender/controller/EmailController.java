@@ -2,6 +2,7 @@ package lk.siyapatha.EmailSender.controller;
 
 
 import lk.siyapatha.EmailSender.entity.ContactUs;
+import lk.siyapatha.EmailSender.entity.Result;
 import lk.siyapatha.EmailSender.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,9 +18,7 @@ public class EmailController {
 
 
     @PostMapping(value = "/contactus", produces = MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ContactUs SendEmail(@RequestBody ContactUs email){
-        System.out.println(email);
-//        System.out.println("Result : " + emailService.SendEmail());
-        return email;
+    public Result SendEmail(@RequestBody ContactUs contactUs){
+        return emailService.SendEmail(contactUs);
     }
 }

@@ -3,27 +3,20 @@ package lk.siyapatha.EmailSender.entity;
 public class ContactUs {
 
     private String Name;
-    private String EmailAddress;
-    private String MsgType;
+    private String Email;
     private String Phone;
-    private String Company;
+    private String Message;
 
     public ContactUs() {
     }
 
-    public ContactUs(String name, String emailAddress, String msgType) {
+    public ContactUs(String name, String email, String phone, String message) {
         Name = name;
-        EmailAddress = emailAddress;
-        MsgType = msgType;
+        Email = email;
+        Phone = phone;
+        Message = message;
     }
 
-    public ContactUs(String name, String emailAddress, String msgType, String phone, String company) {
-        Name = name;
-        EmailAddress = emailAddress;
-        MsgType = msgType;
-        Phone = phone;
-        Company = company;
-    }
 
     public String getName() {
         return Name;
@@ -33,20 +26,12 @@ public class ContactUs {
         Name = name;
     }
 
-    public String getEmailAddress() {
-        return EmailAddress;
+    public String getEmail() {
+        return Email;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        EmailAddress = emailAddress;
-    }
-
-    public String getMsgType() {
-        return MsgType;
-    }
-
-    public void setMsgType(String msgType) {
-        MsgType = msgType;
+    public void setEmail(String email) {
+        Email = email;
     }
 
     public String getPhone() {
@@ -57,22 +42,21 @@ public class ContactUs {
         Phone = phone;
     }
 
-    public String getCompany() {
-        return Company;
+    public String getMessage() {
+        return Message;
     }
 
-    public void setCompany(String company) {
-        Company = company;
+    public void setMessage(String message) {
+        Message = message;
     }
 
     @Override
     public String toString() {
         return "ContactUs{" +
                 "Name='" + Name + '\'' +
-                ", EmailAddress='" + EmailAddress + '\'' +
-                ", MsgType=" + MsgType +
+                ", Email='" + Email + '\'' +
                 ", Phone='" + Phone + '\'' +
-                ", Company='" + Company + '\'' +
+                ", Message='" + Message + '\'' +
                 '}';
     }
 }

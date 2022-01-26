@@ -1,5 +1,7 @@
 package lk.siyapatha.EmailSender.service;
 
+import lk.siyapatha.EmailSender.entity.ContactUs;
+import lk.siyapatha.EmailSender.entity.Result;
 import org.springframework.stereotype.Service;
 
 import javax.mail.*;
@@ -10,13 +12,14 @@ import java.util.Properties;
 @Service
 public class EmailService {
 
-    public boolean SendEmail(){
+    public Result SendEmail(ContactUs contact){
 
-        String from="myemail";
-        String password="password";
-        String to = "senders mail";
-        String sub = " Test";
-        String msg = "Hey there let's see what happens";
+        String from="rebornit.lk@gmail.com";
+        String password="RebornIT@mit2016";
+        String to = "rebornit.lk@gmail.com";
+        String sub = " Message from Client - " + contact.getName();
+        String msg = "Client Name : " + contact.getName() +"\n" + "Contact Number : " + contact.getPhone() +"\n" +
+                "Email : " + contact.getEmail() +"\n"+"Message : " + contact.getMessage() +"\n";
 
 
         //Get properties object
@@ -44,11 +47,9 @@ public class EmailService {
             Transport.send(message);
             System.out.println("Message Sent Successfully to : " + to );
         } catch (MessagingException e) {
-//            return false;
             e.printStackTrace();
-            return false;
-//            throw new RuntimeException(e);
+            return new Result(e.toString(), 400);
         }
-        return true;
+        return new Result("Success", 200);
     }
 }
